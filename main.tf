@@ -18,3 +18,14 @@ resource "aws_vpc" "easytrain-vpc" {
     Name = "${local.name}vpc"
   }
 }
+
+resource "aws_subnet" "easytrain-subnet-pub1" {
+  vpc_id            = local.vpc-id
+  cidr_block        = "10.0.0.0/24"
+  availability_zone = "eu-central-1a"
+
+
+  tags = {
+    Name = "${local.name}subnet-pub1"
+  }
+}
