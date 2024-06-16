@@ -123,7 +123,7 @@ resource "aws_vpc_security_group_egress_rule" "easytrain-egr-updates" {
 
 resource "aws_instance" "easytrain-ec2" {
   # Ubuntu Server 24.04 LTS
-  ami                         = "ami-01e444924a2233b07"
+  ami                         = var.ami-id
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.easytrain-subnet-pub1.id
   associate_public_ip_address = true
