@@ -108,6 +108,18 @@ resource "aws_vpc_security_group_ingress_rule" "easytrain-igr-icmp" {
   }
 }
 
+resource "aws_vpc_security_group_ingress_rule" "easytrain-igr-pg" {
+  security_group_id = local.sg-id
+  cidr_ipv4         = local.cidr-all
+  from_port         = 5432
+  ip_protocol       = "tcp"
+  to_port           = 5432
+
+  tags = {
+    Name = "${local.name}igr-pg"
+  }
+}
+
 # Required to install openjdk-21-jdk, postgresql
 resource "aws_vpc_security_group_egress_rule" "easytrain-egr-updates" {
   security_group_id = local.sg-id
