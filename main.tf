@@ -87,9 +87,9 @@ resource "aws_vpc_security_group_ingress_rule" "easytrain-igr-ssh" {
 resource "aws_vpc_security_group_ingress_rule" "easytrain-igr-http" {
   security_group_id = local.sg-id
   cidr_ipv4         = local.cidr-all
-  from_port         = 80
+  from_port         = 8081
   ip_protocol       = "tcp"
-  to_port           = 80
+  to_port           = 8081
 
   tags = {
     Name = "${local.name}igr-http"
