@@ -133,16 +133,32 @@ resource "aws_vpc_security_group_egress_rule" "easytrain-egr-updates" {
   }
 }
 
+resource "aws_vpc_security_group_egress_rule" "easytrain-egr-email" {
+  security_group_id = local.sg-id
+  cidr_ipv4         = local.cidr-all
+  from_port         = 587
+  ip_protocol       = "tcp"
+  to_port           = 587
+
+  tags = {
+    Name = "${local.name}egr-updates"
+  }
+}
+
 resource "aws_instance" "easytrain-ec2" {
   # Ubuntu Server 24.04 LTS
   ami                         = var.ami-id
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.easytrain-subnet-pub1.id
-  associate_public_ip_address = true
   key_name                    = "ssh_aws_easytrain_ed25519"
   vpc_security_group_ids      = ["${local.sg-id}"]
 
   tags = {
     Name = "${local.name}ec2"
   }
+}
+
+resource "aws_eip" "easytrain-eip" {
+  instance = aws_instance.easytrain-ec2.id
+  depends_on = [ aws_internet_gateway.easytrain-ig ]
 }

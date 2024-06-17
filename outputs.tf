@@ -6,8 +6,8 @@ output "AMI_ID" {
   value = var.ami-id
 }
 
-output "PUBLIC_IP" {
-  value = aws_instance.easytrain-ec2.public_ip
+output "ELASTIC_IP" {
+  value = aws_eip.easytrain-eip.public_ip
 }
 
 output "KEY_NAME" {
