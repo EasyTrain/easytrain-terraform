@@ -65,7 +65,7 @@ resource "aws_route_table_association" "easytrain-rta" {
 
 resource "aws_security_group" "easytrain-sg" {
   vpc_id = local.vpc-id
-  name = "${local.name}sg"
+  name   = "${local.name}sg"
 
   tags = {
     Name = "${local.name}sg"
@@ -147,11 +147,11 @@ resource "aws_vpc_security_group_egress_rule" "easytrain-egr-email" {
 
 resource "aws_instance" "easytrain-ec2" {
   # Ubuntu Server 24.04 LTS
-  ami                         = var.ami-id
-  instance_type               = "t2.micro"
-  subnet_id                   = aws_subnet.easytrain-subnet-pub1.id
-  key_name                    = "ssh_aws_easytrain_ed25519"
-  vpc_security_group_ids      = ["${local.sg-id}"]
+  ami                    = var.ami-id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.easytrain-subnet-pub1.id
+  key_name               = "ssh_aws_easytrain_ed25519"
+  vpc_security_group_ids = ["${local.sg-id}"]
 
   tags = {
     Name = "${local.name}ec2"
@@ -159,6 +159,6 @@ resource "aws_instance" "easytrain-ec2" {
 }
 
 resource "aws_eip" "easytrain-eip" {
-  instance = aws_instance.easytrain-ec2.id
-  depends_on = [ aws_internet_gateway.easytrain-ig ]
+  instance   = aws_instance.easytrain-ec2.id
+  depends_on = [aws_internet_gateway.easytrain-ig]
 }
