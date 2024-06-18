@@ -162,3 +162,18 @@ resource "aws_eip" "easytrain-eip" {
   instance   = aws_instance.easytrain-ec2.id
   depends_on = [aws_internet_gateway.easytrain-ig]
 }
+
+resource "aws_route53_zone" "easytrain-hosted_zone" {
+  comment = "Managed by Terraform"
+  name    = "easytrain.live"
+}
+
+resource "aws_route53_record" "easytrain-a_record" {
+  name    = format("%s", aws_route53_zone.easytrain-hosted_zone.name)
+  zone_id = aws_route53_zone.easytrain-hosted_zone.id
+
+  records = [aws_eip.easytrain-eip.public_ip]
+
+  type = "A"
+  ttl  = 300
+}
