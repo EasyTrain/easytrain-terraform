@@ -153,6 +153,8 @@ resource "aws_instance" "easytrain-ec2" {
   key_name               = "ssh_aws_easytrain_ed25519"
   vpc_security_group_ids = ["${local.sg-id}"]
 
+  user_data = filebase64("user_data.sh")
+
   tags = {
     Name = "${local.name}ec2"
   }
