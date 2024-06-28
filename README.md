@@ -4,6 +4,8 @@
 
 Terraform templates that provision AWS infrastructure for [easytrain/applicaion](https://github.com/EasyTrain/application) project.
 
+The EC2 instance uses a custom Amazon Machine Image (AMI) which is built with packer. The Github repo for the Packer temaplate can be found at [easytrain/packer](https://github.com/EasyTrain/easytrain-packer).
+
 This project is deployed on AWS at [Easytrain.live](https://easytrain.live/)
 
 ## AWS Architecture
@@ -16,7 +18,7 @@ The Terraform main.tf file provisions the following AWS resources:
 - VPC in the eu-central-1 region
 - Public subnet in the eu-central-1a availability zone
 - Routing table and internet gateway
-- An EC2 instance and a security group
+- An EC2 instance that runs a custom AMI and a security group
   - Security Group ingress/egress rules:
     - SSH
     - HTTP (required by loadl balancer) 
