@@ -39,6 +39,10 @@ This project requires the following:
 - AWS CLI 1.15.58
 - A valid AWS Access Key
 
+## VPC Resource Map
+
+![EasyTrain VPC Resource Map](images/easytrain-vpc-resource-map.png)
+
 ## Terraform Files
 ```
 ├── images
