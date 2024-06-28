@@ -44,13 +44,15 @@ This project requires the following:
 ├── images
 │   ├── easytrain.drawio.png
 │   └── easytrain-terraform.png
-├── imports.md
+├── LICENSE
 ├── main.tf
 ├── outputs.tf
 ├── README.md
-├── terraform.tfstate
-├── terraform.tfstate.backup
 ├── user_data.sh
 ├── variables.tf
 └── versions.tf
 ```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
