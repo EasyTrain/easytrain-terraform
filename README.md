@@ -25,6 +25,12 @@ The Terraform main.tf file provisions the following AWS resources:
 - Route53 hosted zone
   - A record that points to the public IP
 
+  ### easytrain.live
+  - The domain name was purchased through Namecheap.com
+  - A CA certificate is attached to the load balancer which
+  enables end-to-end encryption of all data sent between clients
+  and the server.
+
 ## Dependencies
 
 This project requires the following:
