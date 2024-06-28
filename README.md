@@ -25,18 +25,26 @@ The Terraform main.tf file provisions the following AWS resources:
 - Route53 hosted zone
   - A record that points to the public IP
 
-## Getting Started
+## Dependencies
 
-### Dependencies
-
-This requires Terraform version >=1.8.5 and the AWS provider version ~>5.54.1.
+This project requires the following:
+- Terraform version >=1.8.5  
+- AWS provider version ~>5.54.1
+- AWS CLI 1.15.58
+- A valid AWS Access Key
 
 ## Terraform Files
 ```
-├── versions.tf
+├── images
+│   ├── easytrain.drawio.png
+│   └── easytrain-terraform.png
+├── imports.md
 ├── main.tf
-├── variables.tf
 ├── outputs.tf
-└── README.md
+├── README.md
+├── terraform.tfstate
+├── terraform.tfstate.backup
+├── user_data.sh
+├── variables.tf
+└── versions.tf
 ```
-
