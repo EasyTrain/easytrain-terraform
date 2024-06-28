@@ -43,6 +43,10 @@ This project requires the following:
 
 ![EasyTrain VPC Resource Map](images/easytrain-vpc-resource-map.png)
 
+## Load Balancer Resource Map
+
+![EasyTrain Load Balancer Resource Map](images/easytrain-load-balancer-resource-map.png)
+
 ## Terraform Files
 ```
 ├── images
