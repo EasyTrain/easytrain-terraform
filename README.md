@@ -4,7 +4,9 @@
 
 Terraform templates that provision AWS infrastructure for [Easytrain.live](https://easytrain.live/) project.
 
+## AWS Architecture
 
+![](images/easytrain.drawio.png)
 
 
 ## Description
