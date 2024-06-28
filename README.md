@@ -2,12 +2,13 @@
 
 # EasyTrain-Terraform
 
-Terraform templates that provision AWS infrastructure for [Easytrain.live](https://easytrain.live/) project.
+Terraform templates that provision AWS infrastructure for [easytrain/applicaion](https://github.com/EasyTrain/application) project.
+
+This project is deployed on AWS at [Easytrain.live](https://easytrain.live/)
 
 ## AWS Architecture
 
-![](images/easytrain.drawio.png)
-
+![AWS architecture](images/easytrain.drawio.png)
 
 ## Description
 
