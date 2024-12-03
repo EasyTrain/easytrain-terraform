@@ -260,9 +260,9 @@ resource "aws_lb_listener" "easytrain-lb-listener-https" {
   load_balancer_arn = aws_lb.easytrain-lb.arn
   port              = "443"
   protocol          = "HTTPS"
-  ssl_policy = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+  ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06"
   # ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:eu-central-1:905418204334:certificate/d4e6f897-23dc-4125-ac22-2ab7076e4d3f"
+  certificate_arn = "arn:aws:acm:eu-central-1:905418204334:certificate/d4e6f897-23dc-4125-ac22-2ab7076e4d3f"
 
   default_action {
     type             = "forward"
@@ -273,4 +273,16 @@ resource "aws_lb_listener" "easytrain-lb-listener-https" {
 resource "aws_autoscaling_attachment" "easytrain-asa" {
   autoscaling_group_name = aws_autoscaling_group.easytrain-asg.id
   lb_target_group_arn    = aws_lb_target_group.easytrain-tg.arn
+}
+
+resource "aws_route53_record" "easytrain_live_a_record" {
+  zone_id = "Z05842423SR64FMV7ZQFU"
+  name    = "easytrain.live"
+  type    = "A"
+
+  alias {
+    name                   = aws_lb.easytrain-lb.dns_name
+    zone_id                = aws_lb.easytrain-lb.zone_id
+    evaluate_target_health = true
+  }
 }
